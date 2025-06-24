@@ -1,0 +1,32 @@
+<%- include("partials/header.ejs") %>
+<main>
+<h1 class="middle-text">Your books 📚</h1>
+
+<% if(locals.books && books.length > 0) { %>
+  <div class="book-back">
+    <% books.forEach(book => { %>
+      <div class="box">
+        <img src="https://covers.openlibrary.org/b/isbn/<%= book.isbn_number%>-L.jpg" alt="img">
+        <div class="book-info">
+          <p><span class="label">Name:</span> <span class="value"><%= book.name %></span></p>
+          <p><span class="label">Author:</span> <span class="value"><%= book.author %></span></p>
+          <p><span class="label">Review:</span> <span class="value"><%= book.review %></span></p>
+          <p><span class="label">Rating:</span> <span class="value"><%= book.rating %> ⭐</span></p>
+          <p><span class="label">Date:</span> <span class="value"><%= new Date(book.date).toISOString().slice(0, 10) %></span></p>
+        </div>
+        <div class="form-box">
+          <form class="blue" action="/edit/<%= book.id %>" method="get">
+            <button type="submit">Edit</button>
+          </form>
+          <form class="red" action="/delete/<%= book.id %>">
+            <button type="submit">Delete</button>
+          </form>
+        </div>
+      </div>
+    <% }); %>
+  </div> 
+<% } else { %>
+  <h1 class="middle-end">NO BOOKS ADDED YET!</h1>
+<% } %>
+</main>
+<%- include("partials/footer.ejs") %>

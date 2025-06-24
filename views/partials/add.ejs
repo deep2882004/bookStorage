@@ -1,0 +1,40 @@
+<%- include("header.ejs") %>
+ <h1 class="middle-text">Add book 📚</h1>
+<div class="add-container">
+    <div class="add-box">
+     <form action="/add" method="post">
+    <label>Name</label>
+    <input type="text" name="nameadd" placeholder="Name of book" required>
+
+    <label>Author</label>
+    <input type="text" name="authoradd" placeholder="Name of author" required >
+
+    <label>Review</label>
+    <input type="text" name="reviewadd" placeholder="Book review"  required minlength="1" maxlength="100">
+
+ <label>Rating</label>
+    <input type="number" name="ratingadd" placeholder="Book rating" required  min="1" max="10">
+
+ <label>Date</label>
+ <input type="datetime-local" name="dateadd" placeholder="Date of adding" required>
+
+ <label>ISBN Number</label>
+ <input type="text" name="isbn" placeholder="Enter book isbn number" required>
+ <button type="submit">Add Book</button>
+</form>
+
+</div>
+
+ <div class="isbn-number-steps">
+    <h1>How to get isbn number🤔 </h1>
+    <p> step 1 : visit the given link  <a href="https://openlibrary.org/dev/docs/api/books" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></p>
+    <p>step 2 : search your book</p> 
+    <p>step 3 : click on your book</p>
+    <img src="images/details.png" alt=""><p>step 4 : scroll down details section and you will see your book ibsn number copy it </p>
+    <p>step 5 : paste these number in input  field</p>
+    <p>done after felling all details click on add book</p>
+ 
+ </div>
+</div>
+<%- include("footer.ejs") %>
+

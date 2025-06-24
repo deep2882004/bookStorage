@@ -1,0 +1,31 @@
+<%- include("header.ejs") %>
+<h1 class="middle-text">Edit book 📚</h1>
+<div class="edit-contINER">
+<div class="edit-form">
+<div class="api-image">
+    <img src="https://covers.openlibrary.org/b/isbn/<%= book.isbn_number%>-L.jpg" alt="img">
+</div>
+<form action="/edit/<%= book.id %>" method="post">
+ <div class="edit-input">
+    <label>Name</label>
+    <input type="text" name="name" value="<%= book.name %>" required>
+
+    <label>Author</label>
+    <input type="text" name="author" value="<%= book.author %>" required >
+
+    <label>Review</label>
+    <input type="text" name="review" value="<%= book.review %>" required>
+
+ <label>Rating</label>
+    <input type="number" name="rating" value="<%= book.rating %>" required  min="1" max="10">
+
+ <label>Date</label>
+ <input type="datetime-local" name="date" value="<%= book.date %>" required>
+
+ <button type="submit">Update Book</button>
+ </div>
+
+</form>
+</div> 
+</div>
+<%- include("footer.ejs") %>
